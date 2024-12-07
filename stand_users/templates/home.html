@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+    <p>Qual seção você deseja ver?</p>
+    <a href="{% url 'list-standusers' %}">Usuários de Stand</a>
+    <a href="{% url 'list-stands' %}">Stands</a>
+{% endblock %}

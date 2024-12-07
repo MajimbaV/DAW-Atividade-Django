@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if stands|length == 0 %}
+        <p>Não há Stands registrados</p>
+    {% else %}
+        <table border="1">
+            <thead>
+                <th>Nome</th>
+                <th>Habilidade</th>
+                <th>Usuário</th>
+            <tbody>
+                {% for stand in stands %}
+                <tr>
+                    <td>{{stand.name}}</td>
+                    <td>{{stand.ability}}</td>
+                    <td>{{stand.user}}</td>
+                    <td><a href="{% url 'edit-stand' stand.id%}">Editar</a></td>
+                    <td><a href="{% url 'delete-stand' stand.id%}">Remover</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    <a href="{% url 'new-stand' %}">Registrar Stand</a>
+
+{% endblock %}

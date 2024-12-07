@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if standusers|length == 0 %}
+        <p>Não há usuários de stand registrados</p>
+    {% else %}
+    <table border="1">
+        <thead>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Nacionalidade</th>
+        <tbody>
+            {% for standuser in standusers %}
+            <tr>
+                <td>{{standuser.name}}</td>
+                <td>{{standuser.age}}</td>
+                <td>{{standuser.nationality}}</td>
+                <td><a href="{% url 'edit-standuser' standuser.id%}">Editar</a></td>
+                <td><a href="{% url 'delete-standuser' standuser.id%}">Remover</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    <a href="{% url 'new-standuser' %}">Registrar Usuário de Stand</a>
+
+{% endblock %}

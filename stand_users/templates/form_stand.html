@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if stand is not None %}
+        <h2>Editar Stand</h2>
+    {% else %}
+        <h2>Novo Stand</h2>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        <label for="name">
+            Nome:
+            <input type="text" name="name" maxlength="100" value="{{ stand.name }}">
+        </label>
+        <label for="ability">
+            Habilidade:
+            <textarea name="ability" cols="9">{{ stand.ability }}</textarea>
+        </label>
+        <label for="user">
+            Usuário:
+            <select name="user">
+                {% for standuser in standusers %}
+                    {% if stand.user.id == standuser.id%}
+                        <option value="{{standuser.id}}" selected>{{standuser.name}}</option>
+                    {% else %}
+                        <option value="{{standuser.id}}">{{standuser.name}}</option>
+                    {% endif %} 
+                {% endfor %}
+            </select>
+        </label>
+        <button type="submit">Registrar</button>
+    </form>
+{% endblock %}

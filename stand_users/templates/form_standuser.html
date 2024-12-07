@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if standuser is not None %}
+        <h2>Editar Usuário de Stand</h2>
+    {% else %}
+        <h2>Novo Usuário de Stand</h2>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        <label for="name">
+            Nome:
+            <input type="text" name="name" maxlength="100" value="{{ standuser.name }}">
+        </label>
+        <label for="age">
+            Idade:
+            <input type="text" name="age" maxlength="100" value="{{ standuser.age }}">
+        </label>
+        <label for="nationality">
+            Nacionalidade:
+            <input type="text" name="nationality" maxlength="100" value="{{ standuser.nationality }}">
+        </label>
+        <button type="submit">Registrar</button>
+    </form>
+{% endblock %}
