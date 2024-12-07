@@ -1,4 +1,4 @@
-# Exercício de Fixação sobre o conteúdo de Django
+# Atividade Avaliativa Individual do 3º Bimestre
 Esse repositório foi criado como uma atividade avaliativa para o 3º Bimestre da disciplina de Desenvolvolvimento de Aplicações Web, especificamente sobre o conteúdo
 de Django, ministrado em sala.
 
